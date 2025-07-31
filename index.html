@@ -3,176 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Checklist Diário - Caminhão Basculante</title>
-  <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.min.js"></script>
+  <title>Company Page</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    h1, h2 { text-align: center; background-color: #ff0; color: black; padding: 10px; border: 3px solid black; }
-    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-    table, th, td { border: 1px solid #000; }
-    th, td { padding: 8px; text-align: center; }
-    input[type="text"], input[type="date"], input[type="time"] { width: 100%; box-sizing: border-box; }
-    textarea { width: 100%; height: 100px; box-sizing: border-box; }
-    #generate-pdf { display: block; margin: 20px auto; padding: 10px 20px; font-size: 16px; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .buttons button {
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
   </style>
 </head>
-<body id="checklist">
+<body>
 
-  <h1>CAMINHÃO BASCULANTE</h1>
-  <h2>CHECKLIST DIÁRIO DE INSPEÇÃO</h2>
+  <header>
+    <h1>Company Name</h1>
+  </header>
 
-  <table>
-    <tr>
-      <td>Motorista/Inspetor:</td>
-      <td><input type="text" name="inspetor"></td>
-      <td>Número da Licença:</td>
-      <td><input type="text" name="licenca"></td>
-    </tr>
-    <tr>
-      <td>Data:</td>
-      <td><input type="date" name="data"></td>
-      <td>Hora:</td>
-      <td><input type="time" name="hora"></td>
-    </tr>
-    <tr>
-      <td>Localização:</td>
-      <td><input type="text" name="localizacao"></td>
-      <td>Número da Unidade:</td>
-      <td><input type="text" name="unidade"></td>
-    </tr>
-    <tr>
-      <td>Fabricante:</td>
-      <td><input type="text" name="fabricante"></td>
-      <td>Modelo:</td>
-      <td><input type="text" name="modelo"></td>
-    </tr>
-    <tr>
-      <td>Horas Totais:</td>
-      <td><input type="text" name="horas"></td>
-      <td>Horímetro:</td>
-      <td><input type="text" name="horimetro"></td>
-    </tr>
-  </table>
+  <main>
+    <div class="buttons">
+      <a href="checklist.html"><button >Button 1</button></a>
+      <button>Button 2</button>
+    </div>
+  </main>
 
-  <table>
-    <tr>
-      <th>Item de Inspeção</th>
-      <th>OK</th>
-      <th>X (Requer Reparos)</th>
-      <th>N/A</th>
-      <th>Item de Inspeção</th>
-      <th>OK</th>
-      <th>X (Requer Reparos)</th>
-      <th>N/A</th>
-    </tr>
-    <tr>
-      <td>Faróis</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td>Limpador/Lavador</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-    </tr>
-    <tr>
-      <td>Luzes de Estacionamento</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td>Ar Condicionado</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-    </tr>
-    <tr>
-      <td>Setas</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td>Espelhos Laterais</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-    </tr>
-    <tr>
-      <td>Luzes de Freio</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td>Cinto de Segurança</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-    </tr>
-    <tr>
-      <td>Luzes de Emergência</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td>Trava das Portas</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-    </tr>
-    <tr>
-      <td>Luzes de Ré</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td>Vidro/Manivela</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-    </tr>
-    <tr>
-      <td>Freio de Serviço</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td>Maçaneta</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-    </tr>
-    <tr>
-      <td>Freio de Estacionamento</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td>Condição da Carroceria</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-    </tr>
-    <tr>
-      <td>Condição dos Pneus</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td>Motor</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-    </tr>
-    <tr>
-      <td>Pressão dos Pneus</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td>Escapamento</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-    </tr>
-    <tr>
-      <td>Chave de Roda</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td>Extintor de Incêndio</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-    </tr>
-    <tr>
-      <td>Estepe</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td>Kit de Primeiros Socorros</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-    </tr>
-    <tr>
-      <td>Macaco</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td>Outro:</td>
-      <td colspan="3"><input type="text" name="outro1"></td>
-    </tr>
-    <tr>
-      <td>Triângulo</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td>Outro:</td>
-      <td colspan="3"><input type="text" name="outro2"></td>
-    </tr>
-    <tr>
-      <td>Para-brisa</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td>Outro:</td>
-      <td colspan="3"><input type="text" name="outro3"></td>
-    </tr>
-  </table>
+  <footer>
+    <p>Company Name | Address: Your Address Here | Contact: Your Contact Info Here</p>
+  </footer>
 
-  <h3>Comentários/Explicação de Defeitos</h3>
-  <textarea name="comentarios"></textarea>
-
-  <button id="generate-pdf">Gerar PDF</button>
-
-  <script>
-    document.getElementById("generate-pdf").addEventListener("click", function () {
-      var element = document.getElementById("checklist");
-      html2pdf(element, {
-        margin: 0.5,
-        filename: 'checklist.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-      });
-    });
-  </script>
 </body>
 </html>
